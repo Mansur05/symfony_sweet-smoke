@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="text-center">
+            <img src="{{ asset('src/posts/' ~ post.thumbnail) }}" alt="" width="500px">
+            <h1>{{ post.title }}</h1>
+        </div>
+        <p class="mt-3">{{ post.content }}</p>
+
+        <div class="mt-5 float-right">
+            <span class="text-muted">{{ post.publishedAt|date('Y-m-d') }}</span>
+        </div>
+    </div>
+{% endblock %}
