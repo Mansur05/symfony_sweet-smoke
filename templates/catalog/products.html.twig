@@ -1,14 +1,19 @@
-{% for product in products %}
-    <div class="border border-primary p-3 d-flex flex-column">
-        <div class="text-center">
-            <strong>{{ product.arrivedAt|date('Y-m-d') }}</strong>
-        </div>
-        <img src="{{ asset('src/products/' ~ product.thumbnail) }}" alt="" width="250px">
-        <div class="flex-fill"></div>
-        <h5 class="mt-3">{{ product.name }}</h5>
-        <h6 class="text-muted">$ {{ product.price / 100 }}</h6>
-        <div class="mt-2">
-            <button class="btn btn-primary btn-block" onclick="window.location.href = 'product/{{ product.slug }}'">Buy</button>
-        </div>
+<div class="my-5">
+    <h1>Popular Arrivals</h1>
+    <div class="p-5 d-flex justify-content-around">
+        {% for product in products %}
+            <div class="border border-primary p-3 d-flex flex-column">
+                <div class="text-center">
+                    <strong>{{ product.arrivedAt|date('Y-m-d') }}</strong>
+                </div>
+                <img src="{{ asset('src/products/' ~ product.thumbnail) }}" alt="" width="250px">
+                <div class="flex-fill"></div>
+                <h5 class="mt-3">{{ product.name }}</h5>
+                <h6 class="text-muted">$ {{ product.price / 100 }}</h6>
+                <div class="mt-2">
+                    <a class="btn btn-primary btn-block" href="product/{{ product.slug }}">BUY</a>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-{% endfor %}
+</div>
